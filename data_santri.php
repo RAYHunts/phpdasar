@@ -1,5 +1,5 @@
 <?php
-~session_start();
+session_start();
 require 'sesi/sesi_user.php';
  require 'function.php';
  $users = query( "SELECT * FROM data_santri");

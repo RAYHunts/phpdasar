@@ -4,9 +4,22 @@ require 'sesi/sesi_user.php';
  require 'function.php';
  $users = query( "SELECT * FROM data_santri");
 
- if ( isset ($_POST["submit"])){
-    if (add_santri($_POST) >
-0) { echo "santri berhasil ditambahkan"; } else { echo "santri gagal ditambahkan"; } } ?>
+ if (isset($_POST['update'])) {
+    $id = $_GET['this_id'];
+    $hadir1 = $_POST['hadir1'];
+    $sakit1 = $_POST['sakit1'];
+    $izin1 = $_POST['izin1'];
+    $alpha1 = $_POST['alpha1'];
+
+    mysqli_query($conn, "UPDATE data_santri SET hadir1 = '$hadir1', sakit1 = '$sakit1', izin1 = '$izin1', alpha1 = '$alpha1' WHERE id = '$id'");
+    echo "<script>
+    alert('data santri berhasil diupdate!');
+    document.location.href = 'absensi.php';
+    </script>";
+ }   
+
+?>
+
 
 <html lang="en">
 
@@ -79,31 +92,48 @@ require 'sesi/sesi_user.php';
                         </tr>
                     </thead>
                     <tbody>
+
                         <?php $i = 1; ?>
                         <?php foreach ( $users as $user) : ?>
-                        <form action="" method="POST">
-                            <tr>
+
+                        <tr>
+                            <form action="<?php echo $_SERVER['PHP_SELF']; ?>?this_id=<?= $user["id"]; ?>"
+                                method="POST">
                                 <td><?= $i; ?></td>
                                 <td class="nama"><?= $user["nama"]; ?></td>
                                 <td>
-                                    <input type="number" value="<?= $user["hadir1"]; ?>">
+                                    <input type="hidden" name="id" value="<?= $user["id"]; ?>">
+                                    <input type="hidden" name="nama" value="<?= $user["nama"]; ?>">
+                                    <input type="number" name="hadir1" value="<?= $user["hadir1"]; ?>">
                                 </td>
                                 <td>
-                                    <input type="number" value="<?= $user["izin1"]; ?>">
+                                    <input type="number" name="izin1" value="<?= $user["izin1"]; ?>">
                                 </td>
                                 <td>
-                                    <input type="number" value="<?= $user["sakit1"]; ?>">
+                                    <input type="number" name="sakit1" value="<?= $user["sakit1"]; ?>">
                                 </td>
                                 <td>
-                                    <input type="number" value="<?= $user["alpha1"]; ?>">
+                                    <input type="number" name="alpha1" value="<?= $user["alpha1"]; ?>">
                                 </td>
                                 <td>
-                                    100%
+                                    <?php
+                                    $total = $user["hadir1"] + $user["izin1"] + $user["sakit1"] + $user["alpha1"];
+                                    $persentase = $user["hadir1"] / $total*100;
+                                    echo number_format($persentase, 1);
+                                    ?>%</td>
+                                <td>
+                                    <label for="update"><span class="material-icons-sharp">
+                                            refresh
+                                        </span></label>
+                                    <input class="d-none" type="submit" name="update" id="update">
+                                    </a>
                                 </td>
-                            </tr>
-                        </form>
+                            </form>
+                        </tr>
                         <?php $i++; ?>
                         <?php endforeach; ?>
+
+
                     </tbody>
                 </table>
             </div>
@@ -164,8 +194,10 @@ require 'sesi/sesi_user.php';
             </div>
         </div>
     </div>
-    <script src="index.js"></script>
-    <script src="darkmode.js"></script>
+    <script src="index.js">
+    </script>
+    <script src="darkmode.js">
+    </script>
 </body>
 
 </html>

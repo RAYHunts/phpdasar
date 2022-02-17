@@ -139,6 +139,34 @@ function hapus($id) {
     mysqli_query( $conn, "DELETE FROM user WHERE id = $id");
 
     return mysqli_affected_rows($conn);
+    
+}
+
+function update_absensi($update) {
+    global $conn;
+
+    $id = htmlspecialchars($update["id"]);
+    $nama = htmlspecialchars($update["nama"]);
+    $hadir1 = htmlspecialchars($update["hadir1"]);
+    $sakit1 = htmlspecialchars($update["sakit1"]);
+    $izin1 = htmlspecialchars($update["izin1"]);
+    $alpha1 = htmlspecialchars($update["alpha1"]);
+
+
+    $query = "UPDATE data_santri SET
+
+                id = '$id',
+                nama = '$nama',
+                hadir1 = '$hadir1',
+                sakit1 = '$sakit1',
+                izin1 = '$izin1',
+                alpha1 = '$alpha1',
+                ";
+
+
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows( $conn);
 }
 
 
