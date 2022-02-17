@@ -3,7 +3,7 @@ date_default_timezone_set('Asia/Jakarta');
 $date = date("Y-m-d");
 $time = date("H:i:s");  
 $today = date("l, d F Y");  
-$conn = mysqli_connect("localhost", "root", "", "madin");
+$conn = mysqli_connect("localhost", "hunf8754_madin", "hunf8754_madin", "hunf8754_madin");
 
 
 function query( $query) {
