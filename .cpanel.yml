@@ -1,0 +1,21 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/hunf8754/public_html/madin/
+    - /bin/cp absensi.php $DEPLOYPATH
+    - /bin/cp admin.php $DEPLOYPATH
+    - /bin/cp admin1.php $DEPLOYPATH
+    - /bin/cp darkmode.js $DEPLOYPATH
+    - /bin/cp data_santri.php $DEPLOYPATH
+    - /bin/cp data_santri1.php $DEPLOYPATH
+    - /bin/cp function.php $DEPLOYPATH
+    - /bin/cp hapus.php $DEPLOYPATH
+    - /bin/cp hapus_santri.php $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp index.js $DEPLOYPATH
+    - /bin/cp index.php $DEPLOYPATH
+    - /bin/cp login.php $DEPLOYPATH
+    - /bin/cp style.css $DEPLOYPATH
+    - /bin/cp -R img $DEPLOYPATH
+    - /bin/cp -R auth $DEPLOYPATH
+    - /bin/cp -R sesi $DEPLOYPATH
