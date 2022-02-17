@@ -68,6 +68,8 @@ function add_user($new_user) {
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows( $conn);
+
+
 }
 
 function upload(){
@@ -120,7 +122,7 @@ function add_santri($new_user) {
 
     $query = "INSERT INTO data_santri
                 VALUES
-                ('', '$nama', '','', '', '', '',  '', '','', '', '', '', '','', '', '', '', '')
+                ('', '$nama', '0','0', '0', '0', '0',  '0', '0','0', '0', '0', '0', '0','0', '0', '0', '0', '0')
                 ";
     mysqli_query($conn, $query);
 
