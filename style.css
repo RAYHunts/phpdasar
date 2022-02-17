@@ -45,6 +45,20 @@
   box-sizing: border-box;
 }
 
+input {
+  background: none;
+}
+
+input[type="number"] {
+  outline: none;
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 html {
   font-size: 14px;
 }
@@ -96,6 +110,10 @@ h5 {
 
 small {
   font-size: 00.77rem;
+}
+
+.d-none {
+  display: none;
 }
 
 .profile-photo {
@@ -359,6 +377,25 @@ main table .nama {
   text-align: start;
 }
 
+main table td .profile-photo {
+  display: inline;
+}
+
+main table tbody td input[type="number"] {
+  width: 5ch;
+  text-align: center;
+  color: var(--color-dark-variant);
+  font-family: montserrat, sans-serif;
+  font-size: 1em;
+}
+main table td input {
+  width: 100%;
+  text-align: start;
+  color: var(--color-dark-variant);
+  font-family: montserrat, sans-serif;
+  font-size: 1em;
+}
+
 /* main table tbody td:last-child {
   border: none;
 } */
@@ -387,25 +424,28 @@ main .recent-orders a {
 .right .theme-toggler {
   background: var(--color-light);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  height: 1.6rem;
-  width: 4.2rem;
   cursor: pointer;
   border-radius: var(--border-radius-1);
 }
 
 .right .theme-toggler span {
   font-size: 1.2rem;
-  width: 50%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.right .theme-toggler span.d-none {
+  display: none;
+}
 
 .right .theme-toggler span.active {
   background: var(--color-primary);
-  color: white;
+  color: var(--color-white);
+  height: 3rem;
+  width: 3rem;
   border-radius: var(--border-radius-1);
 }
 
@@ -439,6 +479,11 @@ main .recent-orders a {
   grid-template-columns: 2.6rem auto;
   gap: 1rem;
   margin-bottom: 1rem;
+}
+
+label {
+  width: 100%;
+  font-size: 2em;
 }
 
 /* ===========RESPONSIVE========== */
@@ -528,6 +573,7 @@ main .recent-orders a {
   main {
     margin-top: 8rem;
     padding: 0 1rem;
+    width: 100%;
   }
   main .recent-orders {
     position: relative;
