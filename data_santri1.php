@@ -6,7 +6,11 @@ require 'sesi/sesi_user.php';
 
  if ( isset ($_POST["submit"])){
     if (add_santri($_POST) >
-0) { echo "santri berhasil ditambahkan"; } else { echo "santri gagal ditambahkan"; } } ?>
+0) { echo "<script>
+    alert('santri berhasil ditambahkan');
+    document.location.href = ''</script>";
+    } else { echo "<script>
+        alert('santri gagal ditambahkan')</script>"; } } ?>
 
 <html lang="en">
 
@@ -122,13 +126,15 @@ require 'sesi/sesi_user.php';
                 <h2>Recent Updates</h2>
                 <div class="updates">
                     <div class="update">
-                        <div class="profile-photo">
-                            <img src="img/barok.png" alt="" />
-                        </div>
-                        <div class="message">
-                            <p><b>Mike</b> received his order of night lion tech gps drone</p>
-                            <small class="text-muted">2 minutes ago</small>
-                        </div>
+                        <form action="" method="POST">
+                            <div class="message">
+                                <label for="nama">Nama</label>
+                                <input type="text" id="nama" name="nama">
+                            </div>
+                            <button type="submit" name="submit"><span class="material-icons-sharp">
+                                    add_circle
+                                </span></button>
+                        </form>
                     </div>
                     <div class="update">
                         <div class="profile-photo">
@@ -152,8 +158,10 @@ require 'sesi/sesi_user.php';
             </div>
         </div>
     </div>
-    <script src="index.js"></script>
-    <script src="darkmode.js"></script>
+    <script src="index.js">
+    </script>
+    <script src="darkmode.js">
+    </script>
 </body>
 
 </html>

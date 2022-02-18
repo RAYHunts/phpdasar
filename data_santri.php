@@ -5,10 +5,9 @@ require 'sesi/sesi_user.php';
  $users = query( "SELECT * FROM data_santri");
 
  if ( isset ($_POST["submit"])){
-    if (add_santri($_POST) > 0) {
-        echo "santri berhasil ditambahkan";
-    } else {
-        echo "santri gagal ditambahkan";
+    if (add_santri($_POST) > 0) { echo "<script>
+        alert('santri berhasil ditambahkan')</script>"; } else { echo "<script>
+            alert('santri gagal ditambahkan')</script>";
     }
 
  }
