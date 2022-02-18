@@ -128,10 +128,11 @@ require 'sesi/sesi_user.php';
                                     }
                                     ?>%</td>
                                 <td>
-                                    <label for="update" class="updategit "><span class="material-icons-sharp">
+                                    <label for="<?= $user["id"] ?>" class="updategit "><span
+                                            class="material-icons-sharp">
                                             refresh
                                         </span></label>
-                                    <input class="d-none" type="submit" name="update" id="update">
+                                    <input class="d-none" type="submit" name="update" id="<?= $user["id"] ?>">
                                     </a>
                                 </td>
                             </form>

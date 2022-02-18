@@ -45,10 +45,6 @@
   box-sizing: border-box;
 }
 
-.update {
-  color: var(--color-primary);
-}
-
 input {
   background: none;
 }
@@ -398,6 +394,10 @@ main table td input {
   color: var(--color-dark-variant);
   font-family: montserrat, sans-serif;
   font-size: 1em;
+}
+main table td label .updategit span {
+  color: var(--color-primary);
+  cursor: pointer;
 }
 
 /* main table tbody td:last-child {
