@@ -3,7 +3,8 @@
             echo"
                 <script>
                 alert('dilarang mengakses');
-                </script>";
-    header("Location: index.php");
+                document.location.href = 'index.php'</script>";
 
-    } 
+    } else {
+        $data_user = $_SESSION["login"];
+    }

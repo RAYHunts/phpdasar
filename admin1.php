@@ -1,9 +1,6 @@
 <?php
 session_start();
-if( !isset($_SESSION["admin"])){
-    header("Location: index.php");
-
-} 
+require 'sesi/sesi_admin.php';
 require 'function.php';
 $users = query( "SELECT * FROM user");
  

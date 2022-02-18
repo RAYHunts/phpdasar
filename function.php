@@ -117,10 +117,9 @@ function upload(){
 
 function add_santri($new_user) {
     global $conn;
-    
-    $nama = htmlspecialchars($new_user["nama"]);
-    $nama = $nama;
+    $nama = mysqli_real_escape_string($conn,$new_user["nama"]);
 
+    $nama = htmlspecialchars($nama); 
     $query = "INSERT INTO data_santri 
                     VALUES
              (null, '$nama', '','0', '0', '0', '0',  '0', '0','0', '0', '0', '0', '0','0', '0', '0', '0', '0')";
