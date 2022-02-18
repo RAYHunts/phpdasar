@@ -120,10 +120,9 @@ function add_santri($new_user) {
     
     $nama = htmlspecialchars($new_user["nama"]);
 
-    $query = "INSERT INTO data_santri
-                VALUES
-                ('', '$nama', '','0', '0', '0', '0',  '0', '0','0', '0', '0', '0', '0','0', '0', '0', '0', '0')
-                ";
+    $query = "INSERT INTO data_santri 
+                    VALUES
+             (null, '$nama', null,'0', '0', '0', '0',  '0', '0','0', '0', '0', '0', '0','0', '0', '0', '0', '0')";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows( $conn);

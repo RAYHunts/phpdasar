@@ -125,6 +125,34 @@ require 'sesi/sesi_user.php';
                 </div>
             </div>
 
+            <div class="recent-orders">
+                <h2>Recent Orders</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Nama</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $i = 1; ?>
+                        <?php foreach ( $users as $user) : ?>
+                        <tr>
+                            <td><?= $i; ?></td>
+                            <td class="nama">
+                                <input type="text" value="<?= $user["nama"]; ?>">
+                            </td>
+                            <td>
+                                <a href="hapus_santri.php?id=<?= $user["id"]?>"><span
+                                        class="material-icons-sharp">delete_forever</span></a>
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
 
         </main>
         <!-- ===============main end============ -->
