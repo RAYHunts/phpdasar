@@ -168,8 +168,8 @@ require 'sesi/sesi_user.php';
                 </div>
                 <div class="profile">
                     <div class="info">
-                        <p>Hey, <b>Daniel</b></p>
-                        <small class="text-muted">Admin</small>
+                        <p>Hey, <b><?= $data_user['name'] ?></b></p>
+                        <small class="text-muted"><?= $data_user['wali_kelas'] ?></small>
                     </div>
                     <div class="profile-photo">
                         <img src="img/pathol.png" alt="rayhunts" />

@@ -23,7 +23,8 @@ if( isset($_POST["login"])){
                 $_SESSION['admin'] = true;
             } 
                 
-            $_SESSION['login'] = true;
+            $_SESSION['login'] = $row;
+            var_dump($_SESSION['login']['name']); die;
             
             
             header("Location: ../index.php");

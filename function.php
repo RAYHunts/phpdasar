@@ -119,6 +119,7 @@ function add_santri($new_user) {
     global $conn;
     
     $nama = htmlspecialchars($new_user["nama"]);
+    $nama = $nama;
 
     $query = "INSERT INTO data_santri 
                     VALUES

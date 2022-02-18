@@ -34,7 +34,7 @@
     <div class="container">
         <div class="row">
             <div class="col-4">
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
@@ -61,7 +61,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="profile" class="form-label">Profile</label>
-                        <input type="text" class="form-control" name="profile" id="profile">
+                        <input type="file" class="form-control" name="profile" id="profile">
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
                 </form>
