@@ -172,5 +172,4 @@ function update_absensi($update) {
 }
 
 
-
 ?>

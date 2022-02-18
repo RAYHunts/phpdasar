@@ -2,7 +2,7 @@
 session_start();
 require 'sesi/sesi_user.php';
  require 'function.php';
- $users = query( "SELECT * FROM data_santri");
+ $users = query( "SELECT * FROM data_santri ORDER BY nama ASC");
 
  if (isset($_POST['update'])) {
     $id = $_GET['this_id'];
@@ -117,9 +117,12 @@ require 'sesi/sesi_user.php';
                                 </td>
                                 <td>
                                     <?php
-                                    $total = $user["hadir1"] + $user["izin1"] + $user["sakit1"] + $user["alpha1"];
-                                    $persentase = $user["hadir1"] / $total*100;
-                                    echo number_format($persentase, 1);
+                                    $total = $user["hadir1"] + $user["izin1"] + $user["sakit1"] + $user["alpha1"]; 
+                                    if ($total <= 0 ) {
+                                        echo "0";
+                                    } else {
+                                        echo number_format($user["hadir1"] / $total*100, 1);
+                                    }
                                     ?>%</td>
                                 <td>
                                     <label for="update"><span class="material-icons-sharp">
