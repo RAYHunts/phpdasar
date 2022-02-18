@@ -38,10 +38,13 @@ require 'sesi/sesi_user.php';
                     <span class="material-icons-sharp">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
+                <?php
+                if(isset($_SESSION["admin"])) : ?>
                 <a href="admin1.php">
                     <span class="material-icons-sharp">admin_panel_settings</span>
                     <h3>Admin</h3>
                 </a>
+                <?php endif?>
                 <a class="active" href="data_santri1.php">
                     <span class="material-icons-sharp">groups</span>
                     <h3>Data Santri</h3>
