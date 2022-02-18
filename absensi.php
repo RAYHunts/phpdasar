@@ -18,6 +18,20 @@ require 'sesi/sesi_user.php';
     </script>";
  }   
 
+ if (isset($_POST['reset'])) {
+     
+    $hadir1 = $_POST['hadir1'];
+    $sakit1 = $_POST['sakit1'];
+    $izin1 = $_POST['izin1'];
+    $alpha1 = $_POST['alpha1'];
+
+    mysqli_query($conn, "UPDATE data_santri SET hadir1 = '$hadir1', sakit1 = '$sakit1', izin1 = '$izin1', alpha1 = '$alpha1'");
+    echo "<script>
+    alert('data santri berhasil diupdate!');
+    document.location.href = 'absensi.php';
+    </script>";
+ }   
+
 ?>
 
 
@@ -91,11 +105,11 @@ require 'sesi/sesi_user.php';
                             <th>Izin</th>
                             <th>Sakit</th>
                             <th>Aplha</th>
-                            <th>Pecentage</th>
+                            <th>Persentase</th>
+                            <th>Reset</th>
                         </tr>
                     </thead>
                     <tbody>
-
                         <?php $i = 1; ?>
                         <?php foreach ( $users as $user) : ?>
 
@@ -105,8 +119,6 @@ require 'sesi/sesi_user.php';
                                 <td><?= $i; ?></td>
                                 <td class="nama"><?= $user["nama"]; ?></td>
                                 <td>
-                                    <input type="hidden" name="id" value="<?= $user["id"]; ?>">
-                                    <input type="hidden" name="nama" value="<?= $user["nama"]; ?>">
                                     <input type="number" name="hadir1" value="<?= $user["hadir1"]; ?>">
                                 </td>
                                 <td>
@@ -128,8 +140,7 @@ require 'sesi/sesi_user.php';
                                     }
                                     ?>%</td>
                                 <td>
-                                    <label for="<?= $user["id"] ?>" class="updategit "><span
-                                            class="material-icons-sharp">
+                                    <label for="<?= $user["id"] ?>" class="update"><span class="material-icons-sharp">
                                             refresh
                                         </span></label>
                                     <input class="d-none" type="submit" name="update" id="<?= $user["id"] ?>">
@@ -139,6 +150,33 @@ require 'sesi/sesi_user.php';
                         </tr>
                         <?php $i++; ?>
                         <?php endforeach; ?>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                <form action="" method="POST">
+                                    <input type="hidden" name="hadir1" value="0">
+                                    <input type="hidden" name="sakit1" value="0">
+                                    <input type="hidden" name="izin1" value="0">
+                                    <input type="hidden" name="alpha1" value="0">
+                                    <label for="reset" class="reset"><span class="material-icons-sharp">
+                                            delete_forever
+                                        </span></label>
+                                    <input class="d-none" type="submit" name="reset" id="reset">
+                                </form>
+                        </tr>
 
 
                     </tbody>

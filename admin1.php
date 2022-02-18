@@ -145,117 +145,46 @@ $users = query( "SELECT * FROM user");
             </div>
             <!-- ===========endtop======== -->
             <div class="recent-updates">
-                <h2>Recent Updates</h2>
+                <h2>Tambah User</h2>
                 <div class="updates">
                     <div class="update">
-                        <div class="profile-photo">
-                            <img src="img/barok.png" alt="" />
-                        </div>
-                        <div class="message">
-                            <p><b>Mike</b> received his order of night lion tech gps drone</p>
-                            <small class="text-muted">2 minutes ago</small>
-                        </div>
+                        <form action="" method="POST" enctype="multipart/form-data"><input type="text" name="name"
+                                placeholder="Name" required>
+                            <input type="text" name="email" placeholder="Email" required><input type="text"
+                                name="username" placeholder="Username" required autocomplete="off"><input type="text"
+                                name="wali_kelas" placeholder="Wali Kelas" required>
+
+
+
+
+                            <input type="password" name="password" placeholder="Password" required>
+
+                            <input type="password" name="password2" placeholder="Konfirmasi Password" required>
+
+                            <img class="profile-photo" src=" img/nophoto.png" alt="nophoto.jpg" id="profileDisplay">
+                            <label for="profile" onclick="triggerClick()"><span class=" material-icons-sharp">
+                                    add_circle
+                                </span></label>
+                            <input class="d-none" onchange="displayImage(this)" type="file" name="profile" id="profile"
+                                placeholder="Profile">
+
+                            <button type="submit" name="submit"><span class="material-icons-sharp">
+                                    add_circle
+                                </span></button>
                     </div>
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="img/barok.png" alt="" />
-                        </div>
-                        <div class="message">
-                            <p><b>Mike</b> received his order of night lion tech gps drone</p>
-                            <small class="text-muted">2 minutes ago</small>
-                        </div>
-                    </div>
-                    <div class="update">
-                        <div class="profile-photo">
-                            <img src="img/barok.png" alt="" />
-                        </div>
-                        <div class="message">
-                            <p><b>Mike</b> received his order of night lion tech gps drone</p>
-                            <small class="text-muted">2 minutes ago</small>
-                        </div>
-                    </div>
+                    </form>
+
                 </div>
             </div>
         </div>
 
-        <div>
-            <h1>Dashboard</h1>
 
 
-            <div class="recent-orders">
-                <table class="add">
-                    <thead>
-                        <tr>
-                            <th>Tambah User</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <form action="" method="POST" enctype="multipart/form-data">
-                            <tr>
-                                <td>
-                                    <input type="text" name="name" placeholder="Name" required>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" name="email" placeholder="Email" required>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" name="username" placeholder="Username" required
-                                        autocomplete="off">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" name="wali_kelas" placeholder="Wali Kelas" required>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="password" name="password" placeholder="Password" required>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="password" name="password2" placeholder="Konfirmasi Password" required>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <img class="profile-photo" src="img/nophoto.jpg; ?>" alt="nophoto.jpg; ?>">
-                                    <label for="profile"><span class="material-icons-sharp">
-                                            add_circle
-                                        </span></label>
-                                    <input style="display: none; visibility: none;" type="file" name="profile"
-                                        id="profile" placeholder="Profile" required onchange="getImage(this.value);">
-                                    <script type="text/javascript">
-                                    function getImage(imagename) {
-                                        var newimg = imagename.replace(/^.*\\/, "");
-                                        $('#display-image').html(newimg);
-                                    }
-                                    </script>
-
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button type="submit" name="submit"><span class="material-icons-sharp">
-                                            add_circle
-                                        </span></button>
-                                </td>
-                            </tr>
-                        </form>
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-        <!-- ===============main end============ -->
-        <script src="darkmode.js"></script>
-        <script src="index.js">
-        </script>
+    </div>
+    <!-- ===============main end============ -->
+    <script src="darkmode.js"></script>
+    <script src="index.js">
+    </script>
 
 </body>
 

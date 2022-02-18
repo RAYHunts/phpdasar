@@ -84,6 +84,18 @@ body {
   user-select: none;
   overflow-x: hidden;
   color: var(--color-dark);
+  animation: transitionIn 0.75s;
+}
+
+@keyframes transitionIn {
+  from {
+    opacity: 0;
+    transform: rotatex(-1edeg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
 }
 
 .container {
@@ -407,10 +419,6 @@ main table td input {
   font-family: montserrat, sans-serif;
   font-size: 1em;
 }
-main table td label .updategit span {
-  color: var(--color-primary);
-  cursor: pointer;
-}
 
 /* main table tbody td:last-child {
   border: none;
@@ -431,6 +439,12 @@ main .recent-orders a {
   display: flex;
   justify-content: end;
   gap: 2rem;
+}
+
+.right .top .profile .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .right .top button {
@@ -502,9 +516,26 @@ label {
   font-size: 2em;
 }
 
+label.update {
+  cursor: pointer;
+  color: var(--color-primary);
+}
+
+label.update:hover {
+  color: var(--color-light);
+}
+label.reset {
+  cursor: pointer;
+  color: var(--color-primary);
+}
+
+label.reset:hover {
+  color: var(--color-light);
+}
+
 /* ===========RESPONSIVE========== */
 @media screen and (max-width: 1200px) {
-  .container {
+  /* .container {
     width: 94%;
     grid-template-columns: 7rem auto 23rem;
   }
@@ -535,9 +566,9 @@ label {
   main .recent-orders table {
     width: 83vw;
   }
-}
-
-@media screen and (max-width: 768px) {
+} */
+  /* 
+@media screen and (max-width: 768px) { */
   .container {
     width: 100%;
     grid-template-columns: 1fr;
@@ -545,22 +576,21 @@ label {
   aside {
     position: fixed;
     top: 0;
-    left: 0;
+    left: -100%;
     background: var(--color-background);
     width: 18rem;
     z-index: 3;
     box-shadow: 1rem 3rem 4rem var(--color-light);
     height: 100vh;
     padding-right: var(--card-padding);
-    display: none;
-    animation: showMenu 400ms ease forwards;
+    display: block;
+    transition: all 400ms ease;
+  }
+  aside.show {
+    display: block;
+    left: 0;
   }
 
-  @keyframes showMenu {
-    to {
-      left: 0;
-    }
-  }
   aside .logo {
     margin-left: 1rem;
   }
@@ -614,14 +644,8 @@ label {
     margin: 0;
     z-index: 2;
     box-shadow: 0 1rem 1rem var(--color-light);
-  }
-  .right .top .theme-toggler {
-    width: 4.4rem;
-    position: absolute;
-    left: 66%;
-  }
-  .right .profile .info {
-    display: none;
+    display: flex;
+    justify-content: space-between;
   }
 
   .right .top button {
@@ -629,7 +653,6 @@ label {
     background: transparent;
     cursor: pointer;
     color: var(--color-dark);
-    position: absolute;
     left: 1rem;
   }
 

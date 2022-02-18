@@ -34,7 +34,7 @@ require 'sesi/sesi_user.php';
             </div>
 
             <div class="sidebar">
-                <a class="active" href="dashboard.php">
+                <a class="active" href="index.php">
                     <span class="material-icons-sharp">dashboard</span>
                     <h3>Dashboard</h3>
                 </a>
@@ -69,6 +69,7 @@ require 'sesi/sesi_user.php';
             </div>
 
             <div class="insight">
+
                 <div class="sales">
                     <span class="material-icons-sharp">bar_chart</span>
                     <div class="middle">
@@ -130,26 +131,126 @@ require 'sesi/sesi_user.php';
                 <table>
                     <thead>
                         <tr>
-                            <th>No.</th>
-                            <th>Nama</th>
-                            <th>Action</th>
+                            <th>Product Name</th>
+                            <th>Product Number</th>
+                            <th>Paymnent</th>
+                            <th>Status</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php $i = 1; ?>
-                        <?php foreach ( $users as $user) : ?>
                         <tr>
-                            <td><?= $i; ?></td>
-                            <td class="nama">
-                                <input type="text" value="<?= $user["nama"]; ?>">
-                            </td>
-                            <td>
-                                <a href="hapus_santri.php?id=<?= $user["id"]?>"><span
-                                        class="material-icons-sharp">delete_forever</span></a>
-                            </td>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
                         </tr>
-                        <?php $i++; ?>
-                        <?php endforeach; ?>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
+                        </tr>
+                        <tr>
+                            <td>Foldable Mini Drone</td>
+                            <td>3875</td>
+                            <td>Due</td>
+                            <td class="warning">Pending</td>
+                            <td class="primary">Details</td>
+
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -162,17 +263,17 @@ require 'sesi/sesi_user.php';
                 <button id="menu-btn">
                     <span class="material-icons-sharp">menu</span>
                 </button>
-                <div class="theme-toggler">
-                    <span onclick="setDarkMode(false)" class="material-icons-sharp d-none">light_mode</span>
-                    <span onclick="setDarkMode(true)" class="material-icons-sharp active">dark_mode</span>
-                </div>
+
                 <div class="profile">
+                    <div class="theme-toggler">
+                        <span id="darkBtn" onclick="setDarkMode()" class="material-icons-sharp active">dark_mode</span>
+                    </div>
                     <div class="info">
                         <p>Hey, <b><?= $data_user['name'] ?></b></p>
                         <small class="text-muted"><?= $data_user['wali_kelas'] ?></small>
                     </div>
                     <div class="profile-photo">
-                        <img src="img/pathol.png" alt="rayhunts" />
+                        <img src="img/<?=$data_user["profile"] ?>" alt="rayhunts" />
                     </div>
                 </div>
             </div>
@@ -209,10 +310,18 @@ require 'sesi/sesi_user.php';
                     </div>
                 </div>
             </div>
+            <div class="sales-analytics">
+                <h2>Sales analytics</h2>
+                <div class="icon">
+                    <span class="material-icons-sharp active">shopping_cart</span>
+                </div>
+
+            </div>
         </div>
     </div>
     <script src="index.js"></script>
     <script src="darkmode.js"></script>
+
 </body>
 
 </html>

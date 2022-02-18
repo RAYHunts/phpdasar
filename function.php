@@ -19,10 +19,10 @@ function query( $query) {
 function add_user($new_user) {
     global $conn;
     
-    $nama = htmlspecialchars($new_user["name"]);
-    $username = strtolower(stripslashes(htmlspecialchars($new_user["username"])));
-    $email = strtolower(htmlspecialchars($new_user["email"]));
-    $wali_kelas = htmlspecialchars($new_user["wali_kelas"]);
+    $nama = htmlspecialchars(mysqli_real_escape_string($conn, $new_user["name"]));
+    $username = strtolower(stripslashes(htmlspecialchars(mysqli_real_escape_string($conn, $new_user["username"]))));
+    $email = strtolower(htmlspecialchars(mysqli_real_escape_string($conn,$new_user["email"])));
+    $wali_kelas = htmlspecialchars(mysqli_real_escape_string($conn,$new_user["wali_kelas"]));
     $password = mysqli_real_escape_string($conn, $new_user["password"]);
     $password2 = mysqli_real_escape_string($conn, $new_user["password2"]);
 
@@ -117,12 +117,12 @@ function upload(){
 
 function add_santri($new_user) {
     global $conn;
-    $nama = mysqli_real_escape_string($conn,$new_user["nama"]);
+    $nama = htmlspecialchars(mysqli_real_escape_string($conn,$new_user["nama"]));
+    $kelas = htmlspecialchars(mysqli_real_escape_string($conn,$new_user["kelas"]));
 
-    $nama = htmlspecialchars($nama); 
     $query = "INSERT INTO data_santri 
                     VALUES
-             (null, '$nama', '','0', '0', '0', '0',  '0', '0','0', '0', '0', '0', '0','0', '0', '0', '0', '0')";
+             (null, '$nama', '$kelas','0', '0', '0', '0',  '0', '0','0', '0', '0', '0', '0','0', '0', '0', '0', '0')";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows( $conn);
@@ -131,6 +131,14 @@ function add_santri($new_user) {
 function hapus_santri($id) {
     global $conn;
     mysqli_query( $conn, "DELETE FROM data_santri WHERE id = $id");
+
+    return mysqli_affected_rows($conn);
+}
+
+function hapus_kelas($kelas) {
+    global $conn;
+    $kelas = mysqli_real_escape_string($conn,$kelas);
+    mysqli_query( $conn, "DELETE FROM data_santri WHERE kelas = '$kelas'");
 
     return mysqli_affected_rows($conn);
 }
@@ -146,8 +154,7 @@ function hapus($id) {
 function update_absensi($update) {
     global $conn;
 
-    $id = htmlspecialchars($update["id"]);
-    $nama = htmlspecialchars($update["nama"]);
+
     $hadir1 = htmlspecialchars($update["hadir1"]);
     $sakit1 = htmlspecialchars($update["sakit1"]);
     $izin1 = htmlspecialchars($update["izin1"]);
@@ -156,12 +163,28 @@ function update_absensi($update) {
 
     $query = "UPDATE data_santri SET
 
-                id = '$id',
-                nama = '$nama',
                 hadir1 = '$hadir1',
                 sakit1 = '$sakit1',
                 izin1 = '$izin1',
                 alpha1 = '$alpha1',
+                ";
+
+
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows( $conn);
+}
+
+function hapus_absensi($reset) {
+    global $conn;
+    $reset = 0;
+
+    $query = "UPDATE data_santri SET
+
+                hadir1 = '$reset',
+                sakit1 = '$reset',
+                izin1 = '$reset',
+                alpha1 = '$reset',
                 ";
 
 

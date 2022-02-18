@@ -2,7 +2,8 @@
 session_start();
 require 'sesi/sesi_user.php';
  require 'function.php';
- $users = query( "SELECT * FROM data_santri ORDER BY nama ASC");
+ $kelas = $data_user['wali_kelas'];
+ $users = query( "SELECT * FROM data_santri  ORDER BY nama ASC");
 
  if ( isset ($_POST["submit"])){
     if (add_santri($_POST) >
@@ -78,7 +79,7 @@ require 'sesi/sesi_user.php';
                         <tr>
                             <th>No.</th>
                             <th>Nama</th>
-                            <th>Action</th>
+                            <th>Hapus</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,6 +97,12 @@ require 'sesi/sesi_user.php';
                         </tr>
                         <?php $i++; ?>
                         <?php endforeach; ?>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><a href="hapus_kelas.php?kelas=<?= $kelas?>"><span
+                                        class="material-icons-sharp">delete_forever</span></a></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -130,6 +137,7 @@ require 'sesi/sesi_user.php';
                             <div class="message">
                                 <label for="nama">Nama</label>
                                 <input type="text" id="nama" name="nama">
+                                <input type="text" id="kelas" name="kelas" value="<?= $kelas ?>">
                             </div>
                             <button type="submit" name="submit"><span class="material-icons-sharp">
                                     add_circle
